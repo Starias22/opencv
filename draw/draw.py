@@ -36,3 +36,4 @@ cv.imshow("Filled red rectangle drawn on image",line)
 
 
 cv.waitKey(0)
+
