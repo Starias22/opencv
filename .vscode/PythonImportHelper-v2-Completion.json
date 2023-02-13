@@ -1,0 +1,151 @@
+[
+    {
+        "label": "cv2",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "cv2",
+        "description": "cv2",
+        "detail": "cv2",
+        "documentation": {}
+    },
+    {
+        "label": "numpy",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "numpy",
+        "description": "numpy",
+        "detail": "numpy",
+        "documentation": {}
+    },
+    {
+        "label": "radians",
+        "importPath": "math",
+        "description": "math",
+        "isExtraImport": true,
+        "detail": "math",
+        "documentation": {}
+    },
+    {
+        "label": "cos",
+        "importPath": "math",
+        "description": "math",
+        "isExtraImport": true,
+        "detail": "math",
+        "documentation": {}
+    },
+    {
+        "label": "sin",
+        "importPath": "math",
+        "description": "math",
+        "isExtraImport": true,
+        "detail": "math",
+        "documentation": {}
+    },
+    {
+        "label": "pi",
+        "importPath": "math",
+        "description": "math",
+        "isExtraImport": true,
+        "detail": "math",
+        "documentation": {}
+    },
+    {
+        "label": "img",
+        "kind": 5,
+        "importPath": "blob_detection.blob",
+        "description": "blob_detection.blob",
+        "peekOfCode": "img = cv.imread(\"../images/cat2.jpeg\", cv.IMREAD_GRAYSCALE)\n# Set up the detector with default parameters.\ndetector = cv.SimpleBlobDetector()\nprint(\"detection:\",detector)\nprint(\"type(detector):\",type(detector))\n# Detecting blobs.\nkeypoints = detector.detect(img)\n\"\"\"\n# Draw detected blobs as red circles.\n# cv2.DRAW_MATCHES_FLAGS_DRAW_RICH_KEYPOINTS ensures the size of the circle corresponds to the size of blob",
+        "detail": "blob_detection.blob",
+        "documentation": {}
+    },
+    {
+        "label": "detector",
+        "kind": 5,
+        "importPath": "blob_detection.blob",
+        "description": "blob_detection.blob",
+        "peekOfCode": "detector = cv.SimpleBlobDetector()\nprint(\"detection:\",detector)\nprint(\"type(detector):\",type(detector))\n# Detecting blobs.\nkeypoints = detector.detect(img)\n\"\"\"\n# Draw detected blobs as red circles.\n# cv2.DRAW_MATCHES_FLAGS_DRAW_RICH_KEYPOINTS ensures the size of the circle corresponds to the size of blob\nim_with_keypoints = cv.drawKeypoints(img, keypoints, np.array([]), (0, 0, 255),\n                                        cv.DRAW_MATCHES_FLAGS_DRAW_RICH_KEYPOINTS)",
+        "detail": "blob_detection.blob",
+        "documentation": {}
+    },
+    {
+        "label": "keypoints",
+        "kind": 5,
+        "importPath": "blob_detection.blob",
+        "description": "blob_detection.blob",
+        "peekOfCode": "keypoints = detector.detect(img)\n\"\"\"\n# Draw detected blobs as red circles.\n# cv2.DRAW_MATCHES_FLAGS_DRAW_RICH_KEYPOINTS ensures the size of the circle corresponds to the size of blob\nim_with_keypoints = cv.drawKeypoints(img, keypoints, np.array([]), (0, 0, 255),\n                                        cv.DRAW_MATCHES_FLAGS_DRAW_RICH_KEYPOINTS)\n# Show keypoints\ncv.imshow(\"Keypoints\", im_with_keypoints)\ncv.waitKey(0)\"\"\"",
+        "detail": "blob_detection.blob",
+        "documentation": {}
+    },
+    {
+        "label": "im_with_keypoints",
+        "kind": 5,
+        "importPath": "blob_detection.blob",
+        "description": "blob_detection.blob",
+        "peekOfCode": "im_with_keypoints = cv.drawKeypoints(img, keypoints, np.array([]), (0, 0, 255),\n                                        cv.DRAW_MATCHES_FLAGS_DRAW_RICH_KEYPOINTS)\n# Show keypoints\ncv.imshow(\"Keypoints\", im_with_keypoints)\ncv.waitKey(0)\"\"\"",
+        "detail": "blob_detection.blob",
+        "documentation": {}
+    },
+    {
+        "label": "img",
+        "kind": 5,
+        "importPath": "blur.blur",
+        "description": "blur.blur",
+        "peekOfCode": "img = cv.imread(\"../images/cat.jpeg\",cv.IMREAD_COLOR)\ncv.imshow('original image',img)\n#average blur\nblured=cv.blur(img,(3,3))\ncv.imshow('(average) blured image',img)\n#Gaussian blur\ngauss=cv.GaussianBlur(img,(3,3),cv.BORDER_DEFAULT)\ncv.imshow('Gaussian-blured image',gauss)\n#median blur\nblured=cv.medianBlur(img,3)",
+        "detail": "blur.blur",
+        "documentation": {}
+    },
+    {
+        "label": "img",
+        "kind": 5,
+        "importPath": "draw.next",
+        "description": "draw.next",
+        "peekOfCode": "img = cv.imread(\"../images/cat.jpeg\",cv.IMREAD_COLOR)\n#defining points for polylines\npts = np.array([[96,72],[200,115],[115,20],[10,10]], np.int32)\n# pts = pts.reshape((-1,1,2))\ncv.polylines(img, [pts], True, (0,255,255), 3)\ncv.imshow('image',img)\nfont = cv.FONT_HERSHEY_SIMPLEX\ncv.putText(img,'Hack Projects',(10,500), font, 1,(255,255,255),2)\n#Display the image\ncv.imshow(\"Text added\",img)",
+        "detail": "draw.next",
+        "documentation": {}
+    },
+    {
+        "label": "pts",
+        "kind": 5,
+        "importPath": "draw.next",
+        "description": "draw.next",
+        "peekOfCode": "pts = np.array([[96,72],[200,115],[115,20],[10,10]], np.int32)\n# pts = pts.reshape((-1,1,2))\ncv.polylines(img, [pts], True, (0,255,255), 3)\ncv.imshow('image',img)\nfont = cv.FONT_HERSHEY_SIMPLEX\ncv.putText(img,'Hack Projects',(10,500), font, 1,(255,255,255),2)\n#Display the image\ncv.imshow(\"Text added\",img)\ncv.waitKey(0)",
+        "detail": "draw.next",
+        "documentation": {}
+    },
+    {
+        "label": "font",
+        "kind": 5,
+        "importPath": "draw.next",
+        "description": "draw.next",
+        "peekOfCode": "font = cv.FONT_HERSHEY_SIMPLEX\ncv.putText(img,'Hack Projects',(10,500), font, 1,(255,255,255),2)\n#Display the image\ncv.imshow(\"Text added\",img)\ncv.waitKey(0)",
+        "detail": "draw.next",
+        "documentation": {}
+    },
+    {
+        "label": "img",
+        "kind": 5,
+        "importPath": "edge_detect.canny",
+        "description": "edge_detect.canny",
+        "peekOfCode": "img = cv.imread(\"../images/cat.jpeg\",cv.IMREAD_COLOR)\ncv.imshow('original image',img)\ncanny=cv.Canny(img,100,200)\ncv.imshow('Edge detection with canny',canny)\ncv.waitKey(0)",
+        "detail": "edge_detect.canny",
+        "documentation": {}
+    },
+    {
+        "label": "kernel",
+        "kind": 5,
+        "importPath": "filters.filter",
+        "description": "filters.filter",
+        "peekOfCode": "kernel = np.ones((5,5),np.float32)/25#5*5 matrix of 0.4 as value\nprint(\"kernel: \",kernel,sep=\"\\n\")\nfilter2D = cv.filter2D(img,-1,kernel)\ncv.imshow(\"Filter2D\",filter2D)\ncv.waitKey(0)",
+        "detail": "filters.filter",
+        "documentation": {}
+    },
+    {
+        "label": "filter2D",
+        "kind": 5,
+        "importPath": "filters.filter",
+        "description": "filters.filter",
+        "peekOfCode": "filter2D = cv.filter2D(img,-1,kernel)\ncv.imshow(\"Filter2D\",filter2D)\ncv.waitKey(0)",
+        "detail": "filters.filter",
+        "documentation": {}
+    }
+]
