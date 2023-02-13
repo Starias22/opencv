@@ -147,5 +147,32 @@
         "peekOfCode": "filter2D = cv.filter2D(img,-1,kernel)\ncv.imshow(\"Filter2D\",filter2D)\ncv.waitKey(0)",
         "detail": "filters.filter",
         "documentation": {}
+    },
+    {
+        "label": "simple",
+        "kind": 2,
+        "importPath": "mouse_events.callback",
+        "description": "mouse_events.callback",
+        "peekOfCode": "def simple(event,x,y,flags,param):\n    print(\"An mouse event captured at the point\",(x,y))\n    if(event==cv.EVENT_LBUTTONDBLCLK):\n        print('Double click event')\n        #break\n    \"\"\"if (x,y)==(img.shape[1],img.shape[0]):\n        print(\"Center of the image reached:\")\n        return\"\"\"\n\"\"\"Draw circle  with radius r on click\non a point of coordinates(x,y) on the image\"\"\"",
+        "detail": "mouse_events.callback",
+        "documentation": {}
+    },
+    {
+        "label": "draw_circle",
+        "kind": 2,
+        "importPath": "mouse_events.callback",
+        "description": "mouse_events.callback",
+        "peekOfCode": "def draw_circle(event,x,y,flags,param,rad=100):\n    #on the cat image, draw a circle on double click\n    if(event == cv.EVENT_LBUTTONDBLCLK):\n            cv.circle(img,(x,y),rad,(255,255, 0),-1)\n# set callback on mouse\n\"\"\"this method needs the window name and the callable, that\nshould be a function that handle a mouse event\"\"\"\nname=\"draw circle on dbclick\"\nname=\"Simple tests\"\ncv.namedWindow(name)",
+        "detail": "mouse_events.callback",
+        "documentation": {}
+    },
+    {
+        "label": "#mouse_events",
+        "kind": 5,
+        "importPath": "mouse_events.overview",
+        "description": "mouse_events.overview",
+        "peekOfCode": "#mouse_events = [j for j in dir(cv) if 'EVENT' in j]\nmouse_events=list()\n#browse the directory of opencv: for each element inside,\nfor j in dir(cv):\n    #ifthe object contains the word 'EVENT'\n    if 'EVENT' in j:\n    #add it to the list of mouse event\n        mouse_events.append(j)\nprint(mouse_events)\nprint(\"Opencv provides\",len(mouse_events),\"mouse events\")",
+        "detail": "mouse_events.overview",
+        "documentation": {}
     }
 ]
