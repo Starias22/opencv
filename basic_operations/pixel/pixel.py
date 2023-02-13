@@ -27,7 +27,7 @@ print("type(pixel):",type(pixel))
 # at the specified position of the image
 #It's an it that ranges from 0 to 255
 # 0: the darkest shade of gray
-# 0: the lightest shade of gray
+# 255: the lightest shade of gray
 
 
 #the image size is the total number of elements ie pixels in the image
