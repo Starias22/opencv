@@ -95,6 +95,33 @@
         "documentation": {}
     },
     {
+        "label": "cap",
+        "kind": 5,
+        "importPath": "captureVideo.save_video.save",
+        "description": "captureVideo.save_video.save",
+        "peekOfCode": "cap = cv.VideoCapture(0)\n# Define the codec and create VideoWriter object\nfourcc = cv.VideoWriter_fourcc(*'XVID')\nout = cv.VideoWriter('output.avi',fourcc, 20.0, (640,480))\nwhile(cap.isOpened()):\n    ret, frame = cap.read()\n    if ret==True:\n        frame = cv.flip(frame,0)\n        # write the flipped frame\n        out.write(frame)",
+        "detail": "captureVideo.save_video.save",
+        "documentation": {}
+    },
+    {
+        "label": "fourcc",
+        "kind": 5,
+        "importPath": "captureVideo.save_video.save",
+        "description": "captureVideo.save_video.save",
+        "peekOfCode": "fourcc = cv.VideoWriter_fourcc(*'XVID')\nout = cv.VideoWriter('output.avi',fourcc, 20.0, (640,480))\nwhile(cap.isOpened()):\n    ret, frame = cap.read()\n    if ret==True:\n        frame = cv.flip(frame,0)\n        # write the flipped frame\n        out.write(frame)\n        cv.imshow('frame',frame)\n        if cv.waitKey(1) == ord('q'):",
+        "detail": "captureVideo.save_video.save",
+        "documentation": {}
+    },
+    {
+        "label": "out",
+        "kind": 5,
+        "importPath": "captureVideo.save_video.save",
+        "description": "captureVideo.save_video.save",
+        "peekOfCode": "out = cv.VideoWriter('output.avi',fourcc, 20.0, (640,480))\nwhile(cap.isOpened()):\n    ret, frame = cap.read()\n    if ret==True:\n        frame = cv.flip(frame,0)\n        # write the flipped frame\n        out.write(frame)\n        cv.imshow('frame',frame)\n        if cv.waitKey(1) == ord('q'):\n            break",
+        "detail": "captureVideo.save_video.save",
+        "documentation": {}
+    },
+    {
         "label": "img",
         "kind": 5,
         "importPath": "draw.next",
