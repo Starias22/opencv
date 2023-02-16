@@ -1,6 +1,8 @@
 import cv2 as cv
 
 capture=cv.VideoCapture('../videos/video.mp4')
+fps = capture.get(cv.CAP_PROP_FPS)
+print(fps,"frames per second in that video")
 count=0
 
 """display the frame while the user press a
@@ -26,6 +28,7 @@ print(count,"frame(s) captured at all")
 
 
 capture=cv.VideoCapture('../videos/video.mp4')
+
 count=0
 
 """display the frame while the user press a
