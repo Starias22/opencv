@@ -1,5 +1,5 @@
-
 import cv2 as cv
+import os
 img_exts = ['bmp', 'jpg', 'jpeg', 'jpe', 'jp2', 'png',
                     'webp', 'pbm', 'pgm', 'ppm', 'sr', 'ras', 'tiff', 'tif']
 
@@ -7,6 +7,15 @@ def convert(inputPath,outputPath):
 
     #img reading
     try:
+        #if the input file doesn't exist
+        if not os.path.exists(inputPath):
+            raise FileNotFoundError("The input file doesn't exists")
+
+        #if the output path is not valid
+        if outputPath =='' :
+            raise OSError('Invalid output file path')
+        if os.path.exists(outputPath):
+            raise FileExistsError("The output file already exists")
         #try to read the image
         img=cv.imread(inputPath )
         """,cv.IMREAD_GRAYSCALE"""
@@ -14,7 +23,7 @@ def convert(inputPath,outputPath):
 
         #if failure
         if img is None:
-            print('File not found or wrong input file')
+            print('Wrong input file')
             #nothing else to do
             return
         #img=cv.cvtColor(img,cv.COLOR_BGR2GRAY)
@@ -56,20 +65,33 @@ def convert(inputPath,outputPath):
         #assert the extension is in the exts list
         assert ext in img_exts
         cv.imwrite(outputPath,img)
-
+    except FileNotFoundError as e:
+        print(e)
+    except FileExistsError as e:
+        print(e)
+    except OSError as e:
+        print(e)
     except cv.error as e:
-        print('An cv error occured: ',e)
+        print('An cv error occured:',e)
     except AssertionError as e:
         print('Output image extension',ext,' not recognized: ',e)
+    except PermissionError:
+        print("You don't have writing permission to the specified output path")
+
     except Exception as e:
-        print('An unknown error occured: ',e)
+        print('An unknown error occured:',e)
+
     else:
         print('Image successfully converted to',ext)
 inputPath='../images/apple.jpeg'
 
-"""convert(inputPath,outputPath='')#wrong
+convert(inputPath='',outputPath='')#wrong
+convert(inputPath='skd',outputPath='wrong')#wrong
+convert(inputPath='../images/apple.jpeg',outputPath='')#wrong
+
+convert(inputPath,outputPath='')#wrong
 convert(inputPath,outputPath='ke')#wrong
-convert(inputPath,outputPath='out.org')#wrong"""
+convert(inputPath,outputPath='out.org')#wrong
 
 convert(inputPath,outputPath='out.png')#right
 convert(inputPath,outputPath='out.bmp')#right
@@ -90,3 +112,10 @@ convert(inputPath,outputPath='out.pbm')#right  doesn't support bgr
 
 convert('./out.sr',outputPath='out.sr')#right
 
+files=['out.'+ext for ext in img_exts]
+print(files)
+print(os.getcwd())
+
+for file in files:
+    if os.path.exists(file):
+        os.remove(file)
