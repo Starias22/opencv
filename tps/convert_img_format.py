@@ -1,33 +1,22 @@
 import cv2 as cv
+import read as reading
+import writable as wrt
+import write as wt
 import os
 img_exts = ['bmp', 'jpg', 'jpeg', 'jpe', 'jp2', 'png',
                     'webp', 'pbm', 'pgm', 'ppm', 'sr', 'ras', 'tiff', 'tif']
-
 def convert(inputPath,outputPath):
-
     #img reading
     try:
-        #if the input file doesn't exist
-        if not os.path.exists(inputPath):
-            raise FileNotFoundError("The input file doesn't exists")
-
-        #if the output path is not valid
-        if outputPath =='' :
-            raise OSError('Invalid output file path')
-        if os.path.exists(outputPath):
-            raise FileExistsError("The output file already exists")
+        wtb=wrt.iswritable(outputPath)
+        if wtb is None:
+            return
         #try to read the image
-        img=cv.imread(inputPath )
-        """,cv.IMREAD_GRAYSCALE"""
-
-
+        img=reading.read(inputPath )
         #if failure
         if img is None:
-            print('Wrong input file')
             #nothing else to do
             return
-        #img=cv.cvtColor(img,cv.COLOR_BGR2GRAY)
-
         #else
         #get the exetension of the output file
         ext=outputPath.split('.')[-1]
@@ -62,51 +51,37 @@ def convert(inputPath,outputPath):
         cv.imshow('Image to convert',img)
         #wait for a key to continue
         cv.waitKey()
-        #assert the extension is in the exts list
-        assert ext in img_exts
-        cv.imwrite(outputPath,img)
-    except FileNotFoundError as e:
-        print(e)
-    except FileExistsError as e:
-        print(e)
-    except OSError as e:
-        print(e)
+        if wt.imwrite(img,outputPath):
+            print('Image successfully converted to',ext)
+
     except cv.error as e:
         print('An cv error occured:',e)
-    except AssertionError as e:
-        print('Output image extension',ext,' not recognized: ',e)
-    except PermissionError:
-        print("You don't have writing permission to the specified output path")
-
     except Exception as e:
-        print('An unknown error occured:',e)
+        print('An unknown error occured:')
 
-    else:
-        print('Image successfully converted to',ext)
-inputPath='../images/apple.jpeg'
+if __name__=='__main__':
+    inputPath='../images/apple.jpeg'
 
-convert(inputPath='',outputPath='')#wrong
-convert(inputPath='skd',outputPath='wrong')#wrong
-convert(inputPath='../images/apple.jpeg',outputPath='')#wrong
+    convert(inputPath='',outputPath='')#wrong
+    convert(inputPath='skd',outputPath='wrong')#wrong
+    convert(inputPath='../images/apple.jpeg',outputPath='')#wrong
 
-convert(inputPath,outputPath='')#wrong
-convert(inputPath,outputPath='ke')#wrong
-convert(inputPath,outputPath='out.org')#wrong
+    convert(inputPath,outputPath='')#wrong
+    convert(inputPath,outputPath='ke')#wrong
+    convert(inputPath,outputPath='out.org')#wrong
 
-convert(inputPath,outputPath='out.png')#right
-convert(inputPath,outputPath='out.bmp')#right
-convert(inputPath,outputPath='out.jpeg')#right
-convert(inputPath,outputPath='out.jpg')#right
-convert(inputPath,outputPath='out.jpe')#right
-convert(inputPath,outputPath='out.jp2')#right
-convert(inputPath,outputPath='out.webp')#right
-convert(inputPath,outputPath='out.ras')#right
-convert(inputPath,outputPath='out.tiff')#right
-convert(inputPath,outputPath='out.tif')#right
-convert(inputPath,outputPath='out.sr')#right
-convert(inputPath,outputPath='out.ppm')#right # doesn't support grayscale:only color images
-
-
+    convert(inputPath,outputPath='out.png')#right
+    convert(inputPath,outputPath='out.bmp')#right
+    convert(inputPath,outputPath='out.jpeg')#right
+    convert(inputPath,outputPath='out.jpg')#right
+    convert(inputPath,outputPath='out.jpe')#right
+    convert(inputPath,outputPath='out.jp2')#right
+    convert(inputPath,outputPath='out.webp')#right
+    convert(inputPath,outputPath='out.ras')#right
+    convert(inputPath,outputPath='out.tiff')#right
+    convert(inputPath,outputPath='out.tif')#right
+    convert(inputPath,outputPath='out.sr')#right
+    convert(inputPath,outputPath='out.ppm')#right # doesn't support grayscale:only color images
 convert(inputPath,outputPath='out.pgm')#right doesn't support bgr
 convert(inputPath,outputPath='out.pbm')#right  doesn't support bgr
 
