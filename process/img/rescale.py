@@ -1,8 +1,9 @@
+
 import cv2 as cv
 import os
-import read as reading
-import writable as wrt
-import write as wt
+import img.read as reading
+import img.writable as wrt
+import img.write as wt
 
 
 def getRescaledImg(img,hscale,wscale):
@@ -80,9 +81,6 @@ def rescale(inputPath,outputPath,hscale,wscale):
         print('An cv error occured:',e)
     except Exception as e:
         print('An unknown error occured:',e)
-    else:
-
-
 if __name__=='__main__':
     inputPath='../images/apple.jpeg'
     rescale('','',20,20)#wrong

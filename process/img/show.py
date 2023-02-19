@@ -1,5 +1,5 @@
 import cv2 as cv
-import read as rd
+import img.read as rd
 
 def show2(label,img):
     if img is None:
@@ -16,7 +16,6 @@ def show2(label,img):
         #cv.destroyAllWindows()
             #exit
             break
-
 
 def show(inputPath):
     img=rd.read(inputPath)

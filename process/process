@@ -1,0 +1,164 @@
+#!/usr/bin/env python3
+import img.properties as prop
+import img.list as lt
+import img.show as showing
+import img.write as writing
+import img.resize as resizing
+import img.rescale as rescaling
+import img.rotate as rotating
+import img.convert as converting
+import img.read as reading
+import img.writable as writable
+import img.crop as croping
+import img.grayscale as gray
+
+import vid
+
+import argparse as ap
+types=['image','video']
+operations=[
+            #these operations need only input files
+            'properties','show',
+            #these operations need only input and output files
+            'gray','convert','compare',
+            #this operation need input,output, height and width
+            'resize',
+            #this operation need input,output, width scale and or height scale
+
+            'rescale',
+            'draw',
+            'detect','crop','rotate']
+needIn=operations[1:]
+needOut=operations[3:]
+needHW=operations[5:6]
+#print(needIn)
+
+parser=ap.ArgumentParser()
+
+parser.add_argument('type',help='the type(image or video) of the file to process',
+                    choices=types)
+group = parser.add_mutually_exclusive_group(required=False)
+group.add_argument('-lf', '--list-files', help='list image or video files in the specified directory '+
+                    'or in the current working one if no directory specified', action='store_true')
+group.add_argument('-gf', '--group-files', help='group image or video files in the specified directory '+
+
+                    'or in the current working one if no directory specified, by file extension', action='store_true')
+parser.add_argument('operation', help='the operation to proceed on the file', choices=operations, nargs='?', default=None)
+parser.add_argument('inpath', help='the path of the input file', nargs='?', default=None)
+parser.add_argument('outpath', help='the path of the output file', nargs='?', default=None)
+parser.add_argument('width', help='the new width of the image or video', nargs='?', default=None)
+parser.add_argument('height', help='the new height of the image or video', nargs='?', default=None)
+parser.add_argument('wscale', help='the scale to apply to the new image or video', nargs='?', default=None)
+parser.add_argument('hscale', help='the scale to apply to the new image or video', nargs='?', default=None)
+
+group2 = parser.add_argument_group('optional arguments')
+group2.add_argument('-q','--quiet', help='suppress output messages', action='store_true')
+group2.add_argument('-v', '--verbose', help='increase output verbosity', action='count', default=0)
+
+args = parser.parse_args()
+
+lst = args.list_files
+grp = args.group_files
+oper = args.operation
+inpath = args.inpath
+outpath=args.outpath
+quiet = args.quiet
+verbose = args.verbose
+height=args.height
+width=args.width
+hscale=args.hscale
+wscale=args.wscale
+
+if oper=='convert':
+    if height is not None or hscale is not None or wscale is not None or width is not None:
+        parser.error('the arguments width,height, wscale, and hscale are not allowed with the convert operation')
+if args.type == 'image' and not (lst or grp or oper):
+    parser.error('one of the arguments -lf/--list-files -gf/--group-files or operation is required for images')
+
+if oper is not None and (lst or grp):
+    parser.error('argument --list-files/--group-files: not allowed with argument operation')
+
+if lst:
+    imgs = lt.listImages()
+    if not quiet:
+        if len(imgs)!=0:
+            print('List of image files...')
+            for file in imgs:
+                print(file)
+        else:
+            print('No image file found!')
+    else:
+        print(imgs)
+elif grp:
+    imgs = lt.listImages(group=True)
+
+    if not quiet:
+        if len(imgs)!=0:
+            print('Grouping files by extension...')
+            for ext in img.keys():
+                print(ext)
+                for elt in im.values():
+                    if elt==ext:
+                        print(elt)
+        else:
+            print('No image file found!')
+    else:
+        print(imgs)
+
+
+if oper in needIn:
+    if not inpath:
+        print("Error: the 'inpath' argument is required for the '"+oper+"' operation.")
+
+    elif oper == 'show':
+        if not quiet:
+            print(f'Showing {inpath}...')
+            showing.show(inpath)
+    elif oper=='properties':
+        prs = prop.getProperties(inpath)
+        if not quiet:
+            print(f'Getting properties of {inpath}...')
+            for prop in prs:
+                print(prop)
+        else:
+            print(prs)
+    elif oper in needOut:
+        if not outpath:
+            print("Error: the 'outpath' argument is required for the '"+oper+"' operation.")
+        elif oper=='convert':
+            converting.convert(inpath,outpath)
+        elif oper=='gray':
+            grayscale.gray()
+        elif oper=='resize':
+            if width is None or height is None:
+                print("Error: the 'width' and the 'height' arguments are required for the '"+oper+"' operation.")
+            else:
+                try:
+                    width=int(width)
+                    height=int(height)
+                    resizing.resize(inpath,outpath,width,height)
+                except ValueError:
+                    print('Provide valid values for with and height')
+        elif oper=='rescale':
+            if wscale is not None or hscale is not None:
+                parser.error('Unknown argument')
+
+            else:
+                wscale=width
+                hscale=height
+                if wscale is None or hscale is None:
+                    print("Error: the 'wscale' and the 'hscale' arguments are required for the '"+oper+"' operation.")
+                else:
+                    try:
+                        wscale=float(wscale)
+                        hscale=float(hscale)
+                        rescaling.rescale(inpath,outpath,wscale,hscale)
+                    except ValueError:
+                        parser.error('Provide valid values for with sale and height scale')
+"""
+elif oper=='crop':
+    croping.crop()
+elif oper=='rotate':
+    rotating.rotate()
+"""
+

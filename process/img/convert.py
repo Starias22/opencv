@@ -1,8 +1,8 @@
 import cv2 as cv
-import read as reading
-import writable as wrt
-import write as wt
 import os
+import img.read as reading
+import img.writable as wrt
+import img.write as wt
 img_exts = ['bmp', 'jpg', 'jpeg', 'jpe', 'jp2', 'png',
                     'webp', 'pbm', 'pgm', 'ppm', 'sr', 'ras', 'tiff', 'tif']
 def convert(inputPath,outputPath):
@@ -82,15 +82,15 @@ if __name__=='__main__':
     convert(inputPath,outputPath='out.tif')#right
     convert(inputPath,outputPath='out.sr')#right
     convert(inputPath,outputPath='out.ppm')#right # doesn't support grayscale:only color images
-convert(inputPath,outputPath='out.pgm')#right doesn't support bgr
-convert(inputPath,outputPath='out.pbm')#right  doesn't support bgr
+    convert(inputPath,outputPath='out.pgm')#right doesn't support bgr
+    convert(inputPath,outputPath='out.pbm')#right  doesn't support bgr
 
-convert('./out.sr',outputPath='out.sr')#right
+    convert('./out.sr',outputPath='out.sr')#right
 
-files=['out.'+ext for ext in img_exts]
-print(files)
-print(os.getcwd())
+    files=['out.'+ext for ext in img_exts]
+    print(files)
+    print(os.getcwd())
 
-for file in files:
-    if os.path.exists(file):
-        os.remove(file)
+    for file in files:
+        if os.path.exists(file):
+            os.remove(file)

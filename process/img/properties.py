@@ -1,4 +1,4 @@
-import read as reading
+import img.read as reading
 def getProperties(inputPath):
 
     img=reading.read(inputPath)

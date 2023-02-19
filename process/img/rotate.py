@@ -1,8 +1,7 @@
 import cv2 as cv
-import read as reading
-import writable as wrt
-import write as wts
-
+import img.read as reading
+import img.writable as wrt
+import img.write as wts
 
 def getRotatedImg(img,center,angle,scale=1):
 

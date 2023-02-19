@@ -24,16 +24,11 @@ point2=(75,104)
 color=[0,0,255]#red
 rect=cv.rectangle(img,point1,point2,color,thickness=-15)#the 2 last args is opt
 cv.imshow("Filled red rectangle drawn on image",rect)
-
-
 #line
-
 point1=(45,80)
 point2=(75,180)
 color=[88,15,255]
 line=cv.line(img,point1,point2,color,5)
 cv.imshow("Filled red rectangle drawn on image",line)
-
-
 cv.waitKey(0)
 

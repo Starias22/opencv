@@ -1,5 +1,5 @@
 import cv2 as cv
-import writable as wrt
+import img.writable as wrt
 def imwrite(img,outputPath):
     wt=wrt.iswritable(outputPath)
     if wt is None:

@@ -40,18 +40,18 @@ def listImages(path=os.getcwd(),group=False):
     else:
         return imgs
 
-images=listImages()
-print(images)
-images=listImages('')
-images=listImages('sjfk')
-images=listImages('../../')
-print(images)
-
-images=listImages('../../',True)
-print(images)
-"""print(len(images))
-print(images.items())
-print(images.keys())
-lst=list(images.values())
-print('\n\n')
-print(lst)"""
+if __name__=='main':
+    images=listImages()
+    print(images)
+    images=listImages('')
+    images=listImages('sjfk')
+    images=listImages('../../')
+    print(images)
+    images=listImages('../../',True)
+    print(images)
+    """print(len(images))
+    print(images.items())
+    print(images.keys())
+    lst=list(images.values())
+    print('\n\n')
+    print(lst)"""
