@@ -1,8 +1,16 @@
 import cv2 as cv
 import os
+
+import cv2 as cv
+import os
+"""import img.writable as wrt
 import img.read as reading
-import img.writable as wrt
-import img.write as wt
+import img.write as wt"""
+
+import writable as wrt
+import read as reading
+import write as wt
+
 img_exts = ['bmp', 'jpg', 'jpeg', 'jpe', 'jp2', 'png',
                     'webp', 'pbm', 'pgm', 'ppm', 'sr', 'ras', 'tiff', 'tif']
 def convert(inputPath,outputPath):

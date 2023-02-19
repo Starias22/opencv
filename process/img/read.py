@@ -1,6 +1,12 @@
 import cv2 as cv
 import os
+"""import img.writable as wrt
+import img.read as reading
+import img.write as wt"""
 
+import writable as wrt
+import read as reading
+import write as wt
 def read(inputPath):
     #img reading
     try:

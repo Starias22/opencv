@@ -1,9 +1,12 @@
 import cv2 as cv
-import writable as wrt
-import write as wts
-import read as reading
-import show as sh
 import os
+"""import img.writable as wrt
+import img.read as reading
+import img.write as wt"""
+
+import writable as wrt
+import read as reading
+import write as wt
 drawn=False
 radius=10
 color=[0,0,0]

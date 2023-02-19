@@ -1,13 +1,30 @@
 
 import cv2 as cv
 import os
+"""import img.writable as wrt
 import img.read as reading
-import img.writable as wrt
-import img.write as wt
+import img.write as wt"""
+
+import writable as wrt
+import read as reading
+import write as wt
 
 
 def getRescaledImg(img,hscale,wscale):
+    """_summary_
 
+    Args:
+        img (_type_): _description_
+        hscale (_type_): _description_
+        wscale (_type_): _description_
+
+    Raises:
+        TypeError: _description_
+        TypeError: _description_
+
+    Returns:
+        _type_: _description_
+    """
     #img reading
     try:
         if not isinstance(hscale, (int, float)) or not isinstance(wscale, (int, float)):
@@ -36,7 +53,21 @@ def getRescaledImg(img,hscale,wscale):
 
 
 def rescale(inputPath,outputPath,hscale,wscale):
+    """_summary_
 
+    Args:
+        inputPath (_type_): _description_
+        outputPath (_type_): _description_
+        hscale (_type_): _description_
+        wscale (_type_): _description_
+
+    Raises:
+        TypeError: _description_
+        TypeError: _description_
+
+    Returns:
+        _type_: _description_
+    """
     #img reading
     try:
         wrtable=wrt.iswritable(outputPath)
@@ -59,7 +90,6 @@ def rescale(inputPath,outputPath,hscale,wscale):
         inext=inputPath.split('.')[-1]
         #assert the extension is in the exts list
         assert inext==outext
-
         width=int(img.shape[1]*wscale)
         height=int(img.shape[0]*hscale)
         dimens=(width,height)

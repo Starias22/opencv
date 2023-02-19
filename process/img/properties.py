@@ -1,4 +1,12 @@
+import cv2 as cv
+import os
+"""import img.writable as wrt
 import img.read as reading
+import img.write as wt"""
+
+import writable as wrt
+import read as reading
+import write as wt
 def getProperties(inputPath):
 
     img=reading.read(inputPath)
@@ -34,4 +42,5 @@ if __name__=='__main__':
     getProperties(inputPath='skd')#wrong
     val=getProperties(inputPath='../images/apple.jpeg')
     print(val)
+    print(getProperties('./out.jpeg'))
 

@@ -1,4 +1,12 @@
+import cv2 as cv
 import os
+"""import img.writable as wrt
+import img.read as reading
+import img.write as wt"""
+
+import writable as wrt
+import read as reading
+import write as wt
 img_exts = ['bmp', 'jpg', 'jpeg', 'jpe', 'jp2', 'png',
                     'webp', 'pbm', 'pgm', 'ppm', 'sr', 'ras', 'tiff', 'tif']
 
@@ -49,9 +57,9 @@ if __name__=='main':
     print(images)
     images=listImages('../../',True)
     print(images)
-    """print(len(images))
+    print(len(images))
     print(images.items())
     print(images.keys())
     lst=list(images.values())
     print('\n\n')
-    print(lst)"""
+    print(lst)

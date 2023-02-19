@@ -1,6 +1,12 @@
 import cv2 as cv
-import img.read as rd
+import os
+"""import img.writable as wrt
+import img.read as reading
+import img.write as wt"""
 
+import writable as wrt
+import read as reading
+import write as wt
 def show2(label,img):
     if img is None:
         return
@@ -18,7 +24,7 @@ def show2(label,img):
             break
 
 def show(inputPath):
-    img=rd.read(inputPath)
+    img=reading.read(inputPath)
     if img is None:
         return
     cv.waitKey(0)
@@ -35,5 +41,6 @@ def show(inputPath):
             break
 if __name__=='__main__':
     show('')
-    show(('../images/apple.jpeg'))
+    show('./out.jpeg')
+    #show(('../src/images/apple.jpeg'))
     #show('label',)

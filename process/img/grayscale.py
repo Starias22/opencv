@@ -1,8 +1,12 @@
 import cv2 as cv
-import img.read as reading
-import img.writable as wrt
-import img.write as wt
 import os
+"""import img.writable as wrt
+import img.read as reading
+import img.write as wt"""
+
+import writable as wrt
+import read as reading
+import write as wt
 img_exts = ['bmp', 'jpg', 'jpeg', 'jpe', 'jp2', 'png',
                     'webp', 'sr', 'ras', 'tiff', 'tif', 'pbm', 'pgm','ppm']
 def gray(inputPath,outputPath):
@@ -19,8 +23,8 @@ def gray(inputPath,outputPath):
             return
         #else
         img=cv.cvtColor(img,cv.COLOR_BGR2GRAY)
-        cv.imshow('Image to gray to grayscale',img)
-        cv.waitKey()
+        #cv.imshow('Image to convert to grayscale',img)
+        #cv.waitKey()
         if wt.imwrite(img,outputPath):
             print('Image successfully converted to grayscale:')
 
@@ -30,28 +34,10 @@ def gray(inputPath,outputPath):
         print('An unknown error occured:')
 
 if __name__=='__main__':
-    inputPath='../images/apple.jpeg'
+    inputPath='./images/apple.jpeg'
     gray(inputPath='',outputPath='')#wrong
     gray(inputPath='skd',outputPath='wrong')#wrong
-    gray(inputPath='../images/apple.jpeg',outputPath='')#wrong
-    gray(inputPath,outputPath='')#wrong
-    gray(inputPath,outputPath='ke')#wrong
-    gray(inputPath,outputPath='out.org')#wrong
-    gray(inputPath,outputPath='out.png')#right
-    gray(inputPath,outputPath='out.bmp')#right
-    gray(inputPath,outputPath='out.jpeg')#right
-    gray(inputPath,outputPath='out.jpg')#right
-    gray(inputPath,outputPath='out.jpe')#right
-    gray(inputPath,outputPath='out.jp2')#right
-    gray(inputPath,outputPath='out.webp')#right
-    gray(inputPath,outputPath='out.ras')#right
-    gray(inputPath,outputPath='out.tiff')#right
-    gray(inputPath,outputPath='out.tif')#right
-    gray(inputPath,outputPath='out.sr')#right
-    gray(inputPath,outputPath='out.ppm')#right # doesn't support grayscale:only color images
-    gray(inputPath,outputPath='out.pgm')#right doesn't support bgr
-    gray(inputPath,outputPath='out.pbm')#right  doesn't support bgr
-    gray('./out.sr',outputPath='out.sr')#right
+    gray(inputPath='../src/images/apple.jpeg',outputPath='xxx.jpeg')
     files=['out.'+ext for ext in img_exts]
     print(files)
     print(os.getcwd())
