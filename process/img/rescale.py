@@ -11,19 +11,20 @@ import write as wt
 
 
 def getRescaledImg(img,hscale,wscale):
-    """_summary_
-
+    """rescale an image
     Args:
-        img (_type_): _description_
-        hscale (_type_): _description_
-        wscale (_type_): _description_
-
+        img (numpy.ndarray): the ndarray that represents the image
+        hscale (float): the scale to apply to the image height
+        wscale (float): the scale to apply to the image width
     Raises:
-        TypeError: _description_
-        TypeError: _description_
+        TypeError: if the hscale of the wscale is not integer
+            or float, or is negative.
+
 
     Returns:
-        _type_: _description_
+        None: if failure
+        numpy.ndarray: the ndarray that represents the
+            rescaled image if success
     """
     #img reading
     try:
@@ -53,20 +54,18 @@ def getRescaledImg(img,hscale,wscale):
 
 
 def rescale(inputPath,outputPath,hscale,wscale):
-    """_summary_
-
+    """rescale an image
     Args:
-        inputPath (_type_): _description_
-        outputPath (_type_): _description_
-        hscale (_type_): _description_
-        wscale (_type_): _description_
-
+        img (numpy.ndarray): the ndarray that represents the image
+        outputPath(str):the destination of the rescaled image
+        hscale (float): the scale to apply to the image height
+        wscale (float): the scale to apply to the image width
     Raises:
-        TypeError: _description_
-        TypeError: _description_
-
+        TypeError: if the hscale or the wscale is not integer or
+            float, or is negative
     Returns:
-        _type_: _description_
+        None: if failure
+        True: if success
     """
     #img reading
     try:

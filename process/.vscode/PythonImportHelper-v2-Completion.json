@@ -1,0 +1,303 @@
+[
+    {
+        "label": "cv2",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "cv2",
+        "description": "cv2",
+        "detail": "cv2",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "img.read",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "img.read",
+        "description": "img.read",
+        "detail": "img.read",
+        "documentation": {}
+    },
+    {
+        "label": "img.write",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "img.write",
+        "description": "img.write",
+        "detail": "img.write",
+        "documentation": {}
+    },
+    {
+        "label": "writable",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "writable",
+        "description": "writable",
+        "detail": "writable",
+        "documentation": {}
+    },
+    {
+        "label": "read",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "read",
+        "description": "read",
+        "detail": "read",
+        "documentation": {}
+    },
+    {
+        "label": "write",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "write",
+        "description": "write",
+        "detail": "write",
+        "documentation": {}
+    },
+    {
+        "label": "convert",
+        "kind": 2,
+        "importPath": "img.convert",
+        "description": "img.convert",
+        "peekOfCode": "def convert(inputPath,outputPath):\n    \"\"\"converts an image from a format to another\n    Args:\n        inputPath (str): the path of the input file\n        outputPath (str): the path of the output file\n    \"\"\"\n    try:\n        #check if the output path can be written to\n        wtb=wrt.iswritable(outputPath)\n        #otherwise",
+        "detail": "img.convert",
+        "documentation": {}
+    },
+    {
+        "label": "img_exts",
+        "kind": 5,
+        "importPath": "img.convert",
+        "description": "img.convert",
+        "peekOfCode": "img_exts = ['bmp', 'jpg', 'jpeg', 'jpe', 'jp2', 'png',\n                    'webp', 'pbm', 'pgm', 'ppm', 'sr', 'ras', 'tiff', 'tif']\ndef convert(inputPath,outputPath):\n    \"\"\"converts an image from a format to another\n    Args:\n        inputPath (str): the path of the input file\n        outputPath (str): the path of the output file\n    \"\"\"\n    try:\n        #check if the output path can be written to",
+        "detail": "img.convert",
+        "documentation": {}
+    },
+    {
+        "label": "getCropedImg",
+        "kind": 2,
+        "importPath": "img.crop",
+        "description": "img.crop",
+        "peekOfCode": "def getCropedImg(img,x,y,w,h):\n    \"\"\"Crop an image\n    Args:\n        img (numpy.ndarray): the ndarray that represents the image to crop\n        x (int): the to\n        y (int):the left point where to start the croping\n        w (int):\n        h (int):\n    Raises:\n        TypeError: when x,y,w or h is not positive integer or when",
+        "detail": "img.crop",
+        "documentation": {}
+    },
+    {
+        "label": "crop",
+        "kind": 2,
+        "importPath": "img.crop",
+        "description": "img.crop",
+        "peekOfCode": "def crop(inputPath,outputPath,x,y,w,h):\n    \"\"\"crop an image\n    Args:\n        inputPath (str): the input path of the image to crop\n        outputPath (str): the output path of the cropped image\n        x (_type_): _description_\n        y (_type_): _description_\n        w (_type_): _description_\n        h (_type_): _description_\n    Returns:",
+        "detail": "img.crop",
+        "documentation": {}
+    },
+    {
+        "label": "gray",
+        "kind": 2,
+        "importPath": "img.grayscale",
+        "description": "img.grayscale",
+        "peekOfCode": "def gray(inputPath,outputPath):\n    #img reading\n    try:\n        wtb=wrt.iswritable(outputPath)\n        if wtb is None:\n            return\n        #try to read the image\n        img=reading.read(inputPath )\n        #if failure\n        if img is None:",
+        "detail": "img.grayscale",
+        "documentation": {}
+    },
+    {
+        "label": "img_exts",
+        "kind": 5,
+        "importPath": "img.grayscale",
+        "description": "img.grayscale",
+        "peekOfCode": "img_exts = ['bmp', 'jpg', 'jpeg', 'jpe', 'jp2', 'png',\n                    'webp', 'sr', 'ras', 'tiff', 'tif', 'pbm', 'pgm','ppm']\ndef gray(inputPath,outputPath):\n    #img reading\n    try:\n        wtb=wrt.iswritable(outputPath)\n        if wtb is None:\n            return\n        #try to read the image\n        img=reading.read(inputPath )",
+        "detail": "img.grayscale",
+        "documentation": {}
+    },
+    {
+        "label": "listImages",
+        "kind": 2,
+        "importPath": "img.list",
+        "description": "img.list",
+        "peekOfCode": "def listImages(path=os.getcwd(),group=False):\n    \"\"\"search and list the image files in the specified directory\nor in the current one if none is specified\n    Args:\n        path (str, optional): the path where images will be searched\n        files will be searched. Defaults to os.getcwd().\n        group (bool, optional): _description_. Defaults to False.\n    Raises:\n        FileNotFoundError: if the given path is not found\n    Returns:",
+        "detail": "img.list",
+        "documentation": {}
+    },
+    {
+        "label": "img_exts",
+        "kind": 5,
+        "importPath": "img.list",
+        "description": "img.list",
+        "peekOfCode": "img_exts = ['bmp', 'jpg', 'jpeg', 'jpe', 'jp2', 'png',\n                    'webp', 'pbm', 'pgm', 'ppm', 'sr', 'ras', 'tiff', 'tif']\ndef listImages(path=os.getcwd(),group=False):\n    \"\"\"search and list the image files in the specified directory\nor in the current one if none is specified\n    Args:\n        path (str, optional): the path where images will be searched\n        files will be searched. Defaults to os.getcwd().\n        group (bool, optional): _description_. Defaults to False.\n    Raises:",
+        "detail": "img.list",
+        "documentation": {}
+    },
+    {
+        "label": "getProperties",
+        "kind": 2,
+        "importPath": "img.properties",
+        "description": "img.properties",
+        "peekOfCode": "def getProperties(inputPath):\n    \"\"\"get the properties of an input image file\n    Args:\n        inputPath (str): the path of the input file\n    Returns:\n        str: the dictionary that contains each property of the\n        image with it value\n    \"\"\"\n    img=reading.read(inputPath)\n    if img is None:",
+        "detail": "img.properties",
+        "documentation": {}
+    },
+    {
+        "label": "read",
+        "kind": 2,
+        "importPath": "img.read",
+        "description": "img.read",
+        "peekOfCode": "def read(inputPath):\n    #img reading\n    try:\n        if inputPath=='':\n            raise OSError('Output filename is empty')\n        #if the input file doesn't exist\n        if not os.path.exists(inputPath):\n            raise FileNotFoundError(\"The input file doesn't exists\")\n        if os.path.isdir(inputPath):\n            raise OSError('The input file is a directory')",
+        "detail": "img.read",
+        "documentation": {}
+    },
+    {
+        "label": "getRescaledImg",
+        "kind": 2,
+        "importPath": "img.rescale",
+        "description": "img.rescale",
+        "peekOfCode": "def getRescaledImg(img,hscale,wscale):\n    \"\"\"rescale an image\n    Args:\n        img (numpy.ndarray): the ndarray that represents the image\n        hscale (float): the scale to apply to the image height\n        wscale (float): the scale to apply to the image width\n    Raises:\n        TypeError: if the hscale oe the wscale is not integer or float, or is negative\n    Returns:\n        None:if failure",
+        "detail": "img.rescale",
+        "documentation": {}
+    },
+    {
+        "label": "rescale",
+        "kind": 2,
+        "importPath": "img.rescale",
+        "description": "img.rescale",
+        "peekOfCode": "def rescale(inputPath,outputPath,hscale,wscale):\n    \"\"\"rescale an image\n    Args:\n        img (numpy.ndarray): the ndarray that represents the image\n        outputPath(str):the destination of the rescaled image\n        hscale (float): the scale to apply to the image height\n        wscale (float): the scale to apply to the image width\n    Raises:\n        TypeError: if the hscale or the wscale is not integer or float, or is negative\n    Returns:",
+        "detail": "img.rescale",
+        "documentation": {}
+    },
+    {
+        "label": "getResizedImg",
+        "kind": 2,
+        "importPath": "img.resize",
+        "description": "img.resize",
+        "peekOfCode": "def getResizedImg(img,height,width):\n    \"\"\"resize an image\n    Args:\n        img (numpy.ndarray): the ndarray that represents the image\n        height (int): the new height to apply to the image\n        width (int): the new width to apply to the image\n    Raises:\n        TypeError: if the height or the width is not float, or is negative\n    Returns:\n        None:if failure",
+        "detail": "img.resize",
+        "documentation": {}
+    },
+    {
+        "label": "resize",
+        "kind": 2,
+        "importPath": "img.resize",
+        "description": "img.resize",
+        "peekOfCode": "def resize(inputPath,outputPath,height,width):\n    \"\"\"resize an image\n    Args:\n        inputPath (str): the  path of  the image file\n        height (int): the new height to apply to the image\n        width (int): the new width to apply to the image\n    Raises:\n        TypeError: if the height or the width is not float, or is negative\n    Returns:\n        None:if failure",
+        "detail": "img.resize",
+        "documentation": {}
+    },
+    {
+        "label": "getRotatedImg",
+        "kind": 2,
+        "importPath": "img.rotate",
+        "description": "img.rotate",
+        "peekOfCode": "def getRotatedImg(img,center,angle,scale=1):\n    \"\"\"rotates an image\n    Args:\n        img (numpy.ndarray): the ndarray that represents the\n                image to rotate\n        center (tuple or list): the sequence of length 2 that\n                represents the center of the rotation\n        angle (float): the anle of the rotation in degree\n        scale (int, optional): _description_. Defaults to 1.\n    Returns:",
+        "detail": "img.rotate",
+        "documentation": {}
+    },
+    {
+        "label": "rotate",
+        "kind": 2,
+        "importPath": "img.rotate",
+        "description": "img.rotate",
+        "peekOfCode": "def rotate(inputPath,outputPath,center,angle,scale=1):\n    wt=wrt.iswritable(outputPath)\n    if wt is None:\n        return\n    img=reading.read(inputPath)\n    if img is None:\n        return\n    #get the exetension of the output and input files\n    outext=outputPath.split('.')[-1]\n    inext=inputPath.split('.')[-1]",
+        "detail": "img.rotate",
+        "documentation": {}
+    },
+    {
+        "label": "getImgWithCircle",
+        "kind": 2,
+        "importPath": "img.shape",
+        "description": "img.shape",
+        "peekOfCode": "def getImgWithCircle(img,center,radius=radius,color=color,thickness=thickness):\n    if img is None:\n        return\n    try:\n        cv.circle(img,center,radius,color,thickness)\n        return img\n    except cv.error as e:\n        print(e)\ndef drawCircle(inputPath,outputPath,center,radius=10,color=[0,0,0],thickness=-1):\n    #img reading",
+        "detail": "img.shape",
+        "documentation": {}
+    },
+    {
+        "label": "drawCircle",
+        "kind": 2,
+        "importPath": "img.shape",
+        "description": "img.shape",
+        "peekOfCode": "def drawCircle(inputPath,outputPath,center,radius=10,color=[0,0,0],thickness=-1):\n    #img reading\n    try:\n        wrtable=wrt.iswritable(outputPath)\n        if  wrtable is None:\n            return\n        #try to read the image\n        img=reading.read(inputPath)\n        #if failure\n        if img is None:",
+        "detail": "img.shape",
+        "documentation": {}
+    },
+    {
+        "label": "circleDrawingEvent",
+        "kind": 2,
+        "importPath": "img.shape",
+        "description": "img.shape",
+        "peekOfCode": "def circleDrawingEvent( event, x, y,img, radius=radius, color=color, thickness=thickness,\n                    wname='xxx'):\n    global drawn;\n    drawn=False\n    print(\"**/*/*/*/\",img)\n    print('Click to draw a circle(Exit in 60s)')\n    print('Press Q/q to exit')\n    key=cv.waitKey(60000)\n    cv.imshow(wname, img)\n    if key==ord('q'):",
+        "detail": "img.shape",
+        "documentation": {}
+    },
+    {
+        "label": {
+            "name": "",
+            "kind": 2,
+            "peekOfCode": "def  pointDrawingEvent(event,x,y,img,radius,color=color,thickness=thickness):\n    if event==cv.EVENT_LBUTTONDOWN:\n        img=getImgWithCircle(img,(x,y))\n        if img is None:\n            return\n        sh.show2('Circle drawing',img)\nname='circle'\ndef drawing(inputPath,outputPath,shape='point',params=''):\n    write=wrt.iswritable(outputPath)\n    if write is None:"
+        },
+        "kind": 2,
+        "importPath": "img.shape",
+        "description": "img.shape",
+        "peekOfCode": "def  pointDrawingEvent(event,x,y,img,radius,color=color,thickness=thickness):\n    if event==cv.EVENT_LBUTTONDOWN:\n        img=getImgWithCircle(img,(x,y))\n        if img is None:\n            return\n        sh.show2('Circle drawing',img)\nname='circle'\ndef drawing(inputPath,outputPath,shape='point',params=''):\n    write=wrt.iswritable(outputPath)\n    if write is None:",
+        "detail": "img.shape",
+        "documentation": {}
+    },
+    {
+        "label": "drawing",
+        "kind": 2,
+        "importPath": "img.shape",
+        "description": "img.shape",
+        "peekOfCode": "def drawing(inputPath,outputPath,shape='point',params=''):\n    write=wrt.iswritable(outputPath)\n    if write is None:\n        return\n    inext=inputPath.split('.')[-1]\n    outext=outputPath.split('.')[-1]\n    try:\n        assert inext==outext\n        img=reading.read(inputPath)\n        if img is None:",
+        "detail": "img.shape",
+        "documentation": {}
+    },
+    {
+        "label": "show2",
+        "kind": 2,
+        "importPath": "img.show",
+        "description": "img.show",
+        "peekOfCode": "def show2(label,img):\n    \"\"\"Show an image\n    Args:\n        label (str): the name of the window\n        img (numpy.ndarray): the ndarray that represents the image to show\n    \"\"\"\n    if img is None:\n        return\n    cv.waitKey(0)\n    name=label",
+        "detail": "img.show",
+        "documentation": {}
+    },
+    {
+        "label": "show",
+        "kind": 2,
+        "importPath": "img.show",
+        "description": "img.show",
+        "peekOfCode": "def show(inputPath):\n    \"\"\"show an image\n    Args:\n        inputPath (str): the path of the input image file to show\n    \"\"\"\n    img=reading.read(inputPath)\n    if img is None:\n        return\n    cv.waitKey(0)\n    name=inputPath.split('/')[-1]",
+        "detail": "img.show",
+        "documentation": {}
+    },
+    {
+        "label": "iswritable",
+        "kind": 2,
+        "importPath": "img.writable",
+        "description": "img.writable",
+        "peekOfCode": "def iswritable(outputPath):\n    \"\"\"checks if an output path  is writable\n    Args:\n        outputPath (str): the output file path to write to\n    Raises:\n        OSError: _description_\n        OSError: _description_\n        FileExistsError: _description_\n        AssertionError: _description_\n        AssertionError: _description_",
+        "detail": "img.writable",
+        "documentation": {}
+    },
+    {
+        "label": "img_exts",
+        "kind": 5,
+        "importPath": "img.writable",
+        "description": "img.writable",
+        "peekOfCode": "img_exts = ['bmp', 'jpg', 'jpeg', 'jpe', 'jp2', 'png',\n                    'webp', 'pbm', 'pgm', 'ppm', 'sr', 'ras', 'tiff', 'tif']\ndef iswritable(outputPath):\n    \"\"\"checks if an output path  is writable\n    Args:\n        outputPath (str): the output file path to write to\n    Raises:\n        OSError: _description_\n        OSError: _description_\n        FileExistsError: _description_",
+        "detail": "img.writable",
+        "documentation": {}
+    },
+    {
+        "label": "imwrite",
+        "kind": 2,
+        "importPath": "img.write",
+        "description": "img.write",
+        "peekOfCode": "def imwrite(img,outputPath):\n    \"\"\"writes an image to the specified output path\n    Args:\n        img (numpy.ndarray): the ndarray that represents the image\n        to write to an out path\n        outputPath (str): the output file path to write image to\n    Returns:\n        bool:True if the writing is successfull\n        None:if failure\n    \"\"\"",
+        "detail": "img.write",
+        "documentation": {}
+    }
+]

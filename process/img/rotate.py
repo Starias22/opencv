@@ -8,6 +8,18 @@ import writable as wrt
 import read as reading
 import write as wt
 def getRotatedImg(img,center,angle,scale=1):
+    """rotates an image
+    Args:
+        img (numpy.ndarray): the ndarray that represents the
+                image to rotate
+        center (tuple or list): the sequence of length 2 that
+                represents the center of the rotation
+        angle (float): the angle of the rotation in degree
+        scale (int, optional): _the scale. Defaults to 1.
+
+    Returns:
+        numpy.ndarray: the ndarray that represents the rotated image
+    """
 
     if img is None:
         return
@@ -20,7 +32,6 @@ def getRotatedImg(img,center,angle,scale=1):
         print('An cv error occured',e)
     except Exception as e:
         print('An error occured',e)
-
 
 def rotate(inputPath,outputPath,center,angle,scale=1):
     wt=wrt.iswritable(outputPath)
@@ -40,7 +51,6 @@ def rotate(inputPath,outputPath,center,angle,scale=1):
         img=getRotatedImg(img,center,angle,scale)
         if img is None or wts.imwrite(img,outputPath) is None:
             return
-
         return True
         #return None
     except AssertionError as e:

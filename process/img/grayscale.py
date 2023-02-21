@@ -10,6 +10,12 @@ import write as wt
 img_exts = ['bmp', 'jpg', 'jpeg', 'jpe', 'jp2', 'png',
                     'webp', 'sr', 'ras', 'tiff', 'tif', 'pbm', 'pgm','ppm']
 def gray(inputPath,outputPath):
+    """converts an image to grayscale
+
+    Args:
+        inputPath (str): the path of the input image file
+        outputPath (str): the path of the output image file
+    """
     #img reading
     try:
         wtb=wrt.iswritable(outputPath)
@@ -23,8 +29,6 @@ def gray(inputPath,outputPath):
             return
         #else
         img=cv.cvtColor(img,cv.COLOR_BGR2GRAY)
-        #cv.imshow('Image to convert to grayscale',img)
-        #cv.waitKey()
         if wt.imwrite(img,outputPath):
             print('Image successfully converted to grayscale:')
 

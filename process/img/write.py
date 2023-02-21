@@ -8,6 +8,17 @@ import writable as wrt
 import read as reading
 import write as wt
 def imwrite(img,outputPath):
+    """writes an image to the specified output path
+
+    Args:
+        img (numpy.ndarray): the ndarray that represents the image
+        to write to an output path
+        outputPath (str): the output file path to write image to
+
+    Returns:
+        bool:True if the writing is successfull
+        None:if failure
+    """
     wt=wrt.iswritable(outputPath)
     if wt is None:
         return

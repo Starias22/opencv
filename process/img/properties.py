@@ -8,6 +8,15 @@ import writable as wrt
 import read as reading
 import write as wt
 def getProperties(inputPath):
+    """gets the properties of an input image file
+    Args:
+        inputPath (str): the path of the input file
+
+    Returns:
+        dict: a dictionary that contains each property
+            (height, width, the number of channels, size, gray or not)
+            of the image with it value
+    """
 
     img=reading.read(inputPath)
     if img is None:
@@ -22,12 +31,10 @@ def getProperties(inputPath):
     try:
         height,width,nbchannels=img.shape
         size=img.size
-
     except IndexError :
         nbchannels=1
         gray=True
     finally:
-
         props['name']=name
         props['height']=height
         props['width']=width

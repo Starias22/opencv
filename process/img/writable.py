@@ -11,6 +11,21 @@ img_exts = ['bmp', 'jpg', 'jpeg', 'jpe', 'jp2', 'png',
                     'webp', 'pbm', 'pgm', 'ppm', 'sr', 'ras', 'tiff', 'tif']
 
 def iswritable(outputPath):
+    """checks if an output path  is writable
+    Args:
+        outputPath (str): the output file path to write to
+
+    Raises:
+        OSError: if the output file path is empty or a directory
+        FileExistsError: if the output path already exists
+        AssertionError: if the output path doesn't have any extension
+            or if the extension is not supported
+        PermissionError: if the user doesn't have writing access
+            to the specified output path
+
+    Returns:
+        bool: True if success
+    """
 
     #img reading
     try:

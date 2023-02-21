@@ -8,13 +8,15 @@ import writable as wrt
 import read as reading
 import write as wt
 def read(inputPath):
+
+    """reads an input image file
+    Returns:
+    numpy.ndarray: the ndarray that represents the image.
+    """
     #img reading
     try:
-
         if inputPath=='':
             raise OSError('Output filename is empty')
-
-
         #if the input file doesn't exist
         if not os.path.exists(inputPath):
             raise FileNotFoundError("The input file doesn't exists")
@@ -24,7 +26,6 @@ def read(inputPath):
             raise PermissionError("You don't have reading permission to the specified input path")
         #try to read the image
         img=cv.imread(inputPath )
-        """,cv.IMREAD_GRAYSCALE"""
         #if failure
         if img is None:
             print('Wrong input file')
@@ -46,7 +47,6 @@ def read(inputPath):
     except Exception as e:
         print('An error occured:',e)
         #exit()
-
     else:
         return img
 

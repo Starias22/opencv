@@ -1,8 +1,5 @@
 import cv2 as cv
 import os
-
-import cv2 as cv
-import os
 """import img.writable as wrt
 import img.read as reading
 import img.write as wt"""
@@ -11,14 +8,25 @@ import writable as wrt
 import read as reading
 import write as wt
 
+#list of the supported extensions
 img_exts = ['bmp', 'jpg', 'jpeg', 'jpe', 'jp2', 'png',
                     'webp', 'pbm', 'pgm', 'ppm', 'sr', 'ras', 'tiff', 'tif']
+
 def convert(inputPath,outputPath):
-    #img reading
+    """converts an image from a format to another.
+
+    Args:
+        inputPath (str): the path of the input file
+        outputPath (str): the path of the output file
+    """
+
     try:
+        #check if the output path can be written to
         wtb=wrt.iswritable(outputPath)
+        #otherwise
         if wtb is None:
             return
+        #the output file is writable
         #try to read the image
         img=reading.read(inputPath )
         #if failure
@@ -53,27 +61,26 @@ def convert(inputPath,outputPath):
                 #else(O/ key is pressed)
                 #convert img to grayscale
                 img=cv.cvtColor(img,cv.COLOR_BGR2GRAY)
-
-        print('File converting: Press a key to continue')
+        """print('File converting: Press a key to continue')
         #show the image
         cv.imshow('Image to convert',img)
         #wait for a key to continue
-        cv.waitKey()
+        cv.waitKey()"""
         if wt.imwrite(img,outputPath):
             print('Image successfully converted to',ext)
-
+            return True
     except cv.error as e:
         print('An cv error occured:',e)
     except Exception as e:
         print('An unknown error occured:')
 
 if __name__=='__main__':
+    help(convert)
     inputPath='../images/apple.jpeg'
 
     convert(inputPath='',outputPath='')#wrong
     convert(inputPath='skd',outputPath='wrong')#wrong
     convert(inputPath='../images/apple.jpeg',outputPath='')#wrong
-
     convert(inputPath,outputPath='')#wrong
     convert(inputPath,outputPath='ke')#wrong
     convert(inputPath,outputPath='out.org')#wrong

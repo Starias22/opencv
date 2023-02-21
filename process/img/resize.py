@@ -8,15 +8,22 @@ import writable as wrt
 import read as reading
 import write as wt
 def getResizedImg(img,height,width):
+    """resize an image
+    Args:
+        img (numpy.ndarray): the ndarray that represents the image
+        height (int): the new height to apply to the image
+        width (int): the new width to apply to the image
+    Raises:
+        TypeError: if the height or the width is not float, or is negative
+    Returns:
+        None:if failure
+    """
     #img reading
     try:
-
         if type(height)!=type(0) or type(width)!=type(0):
             raise TypeError('Width and height should be integers')
-
         if height<=0 or width<=0:
             raise TypeError('Width and height should be positive and not null')
-
         #if failure
         if img is None:
             #nothing else to do
@@ -35,6 +42,19 @@ def getResizedImg(img,height,width):
 
 
 def resize(inputPath,outputPath,height,width):
+    """resize an image
+    Args:
+        inputPath (str): the  path of  the image file
+        height (int): the new height to apply to the image
+        width (int): the new width to apply to the image
+    Raises:
+        TypeError: if the height or the width is not float, or is negative
+
+
+    Returns:
+        None: if failure
+        bool: True otherwise
+    """
 
     #img reading
     try:

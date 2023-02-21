@@ -8,6 +8,11 @@ import writable as wrt
 import read as reading
 import write as wt
 def show2(label,img):
+    """shows an image
+    Args:
+        label (str): the name of the window
+        img (numpy.ndarray): the ndarray that represents the image to show
+    """
     if img is None:
         return
     cv.waitKey(0)
@@ -24,6 +29,10 @@ def show2(label,img):
             break
 
 def show(inputPath):
+    """shows an image
+    Args:
+        inputPath (str): the path of the input image file to show
+    """
     img=reading.read(inputPath)
     if img is None:
         return
